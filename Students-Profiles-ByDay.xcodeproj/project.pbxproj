@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46257C912385F661008251EC /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46257C902385F661008251EC /* Student.swift */; };
 		46A8EDDE2384CE8F003E33DE /* StudentStaticTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46A8EDDC2384CE8F003E33DE /* StudentStaticTableView.storyboard */; };
 		46ABF51023849BD20048527E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF50F23849BD20048527E /* AppDelegate.swift */; };
 		46ABF51223849BD20048527E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF51123849BD20048527E /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46257C902385F661008251EC /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		46A8EDDD2384CE8F003E33DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Students-Profiles-ByDay/Base.lproj/StudentStaticTableView.storyboard"; sourceTree = "<group>"; };
 		46ABF50C23849BD20048527E /* Students-Profiles-ByDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Students-Profiles-ByDay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46ABF50F23849BD20048527E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46257C8F2385F63E008251EC /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				46257C902385F661008251EC /* Student.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
 		46ABF50323849BD20048527E = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 		46ABF5252384B8EF0048527E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				46257C8F2385F63E008251EC /* Student */,
 				46ABF5262384B9340048527E /* AppProfile */,
 			);
 			path = Models;
@@ -185,6 +196,7 @@
 				46EC3C1D238575D600FD036C /* ProfileTableViewCell.swift in Sources */,
 				46ABF52A2384B99F0048527E /* AppProfile.swift in Sources */,
 				46ABF51023849BD20048527E /* AppDelegate.swift in Sources */,
+				46257C912385F661008251EC /* Student.swift in Sources */,
 				46ABF5302384BBB90048527E /* AppProfileData.swift in Sources */,
 				46EC3C1B238571E500FD036C /* AppProfilesTableViewController.swift in Sources */,
 				46ABF51223849BD20048527E /* SceneDelegate.swift in Sources */,
