@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46A8EDDE2384CE8F003E33DE /* StudentStaticTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46A8EDDC2384CE8F003E33DE /* StudentStaticTableView.storyboard */; };
 		46ABF51023849BD20048527E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF50F23849BD20048527E /* AppDelegate.swift */; };
 		46ABF51223849BD20048527E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF51123849BD20048527E /* SceneDelegate.swift */; };
 		46ABF51723849BD20048527E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46ABF51523849BD20048527E /* Main.storyboard */; };
@@ -16,9 +17,12 @@
 		46ABF52A2384B99F0048527E /* AppProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF5292384B99F0048527E /* AppProfile.swift */; };
 		46ABF52C2384BA8E0048527E /* AppProfileFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF52B2384BA8E0048527E /* AppProfileFunctions.swift */; };
 		46ABF5302384BBB90048527E /* AppProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF52F2384BBB90048527E /* AppProfileData.swift */; };
+		46EC3C1B238571E500FD036C /* AppProfilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC3C1A238571E500FD036C /* AppProfilesTableViewController.swift */; };
+		46EC3C1D238575D600FD036C /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC3C1C238575D600FD036C /* ProfileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46A8EDDD2384CE8F003E33DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Students-Profiles-ByDay/Base.lproj/StudentStaticTableView.storyboard"; sourceTree = "<group>"; };
 		46ABF50C23849BD20048527E /* Students-Profiles-ByDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Students-Profiles-ByDay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46ABF50F23849BD20048527E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46ABF51123849BD20048527E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +34,8 @@
 		46ABF5292384B99F0048527E /* AppProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProfile.swift; sourceTree = "<group>"; };
 		46ABF52B2384BA8E0048527E /* AppProfileFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProfileFunctions.swift; sourceTree = "<group>"; };
 		46ABF52F2384BBB90048527E /* AppProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProfileData.swift; sourceTree = "<group>"; };
+		46EC3C1A238571E500FD036C /* AppProfilesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProfilesTableViewController.swift; sourceTree = "<group>"; };
+		46EC3C1C238575D600FD036C /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,7 @@
 		46ABF50323849BD20048527E = {
 			isa = PBXGroup;
 			children = (
+				46A8EDDC2384CE8F003E33DE /* StudentStaticTableView.storyboard */,
 				46ABF50E23849BD20048527E /* Students-Profiles-ByDay */,
 				46ABF50D23849BD20048527E /* Products */,
 			);
@@ -63,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				46ABF5252384B8EF0048527E /* Models */,
-				46ABF52323849D3E0048527E /* StudentStaticTableView.swift */,
+				46EC3C192385715B00FD036C /* Views */,
 				46ABF50F23849BD20048527E /* AppDelegate.swift */,
 				46ABF51123849BD20048527E /* SceneDelegate.swift */,
 				46ABF51523849BD20048527E /* Main.storyboard */,
@@ -90,6 +97,16 @@
 				46ABF52F2384BBB90048527E /* AppProfileData.swift */,
 			);
 			path = AppProfile;
+			sourceTree = "<group>";
+		};
+		46EC3C192385715B00FD036C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				46ABF52323849D3E0048527E /* StudentStaticTableView.swift */,
+				46EC3C1A238571E500FD036C /* AppProfilesTableViewController.swift */,
+				46EC3C1C238575D600FD036C /* ProfileTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +169,7 @@
 			files = (
 				46ABF51C23849BD40048527E /* LaunchScreen.storyboard in Resources */,
 				46ABF51923849BD40048527E /* Assets.xcassets in Resources */,
+				46A8EDDE2384CE8F003E33DE /* StudentStaticTableView.storyboard in Resources */,
 				46ABF51723849BD20048527E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,9 +182,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				46ABF52423849D3E0048527E /* StudentStaticTableView.swift in Sources */,
+				46EC3C1D238575D600FD036C /* ProfileTableViewCell.swift in Sources */,
 				46ABF52A2384B99F0048527E /* AppProfile.swift in Sources */,
 				46ABF51023849BD20048527E /* AppDelegate.swift in Sources */,
 				46ABF5302384BBB90048527E /* AppProfileData.swift in Sources */,
+				46EC3C1B238571E500FD036C /* AppProfilesTableViewController.swift in Sources */,
 				46ABF51223849BD20048527E /* SceneDelegate.swift in Sources */,
 				46ABF52C2384BA8E0048527E /* AppProfileFunctions.swift in Sources */,
 			);
@@ -175,6 +195,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		46A8EDDC2384CE8F003E33DE /* StudentStaticTableView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46A8EDDD2384CE8F003E33DE /* Base */,
+			);
+			name = StudentStaticTableView.storyboard;
+			sourceTree = "<group>";
+		};
 		46ABF51523849BD20048527E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -315,6 +343,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MZ552MTEJZ;
 				INFOPLIST_FILE = "Students-Profiles-ByDay/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,6 +362,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MZ552MTEJZ;
 				INFOPLIST_FILE = "Students-Profiles-ByDay/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

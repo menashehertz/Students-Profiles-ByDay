@@ -1,20 +1,24 @@
 //
-//  StudentStaticTableView.swift
+//  AppProfilesTableViewController.swift
 //  Students-Profiles-ByDay
 //
-//  Created by Steven Hertz on 11/19/19.
+//  Created by Steven Hertz on 11/20/19.
 //  Copyright © 2019 DevelopItSolutions. All rights reserved.
 //
 
 import UIKit
 
-class StudentStaticTableView: UITableViewController {
+class AppProfilesTableViewController: UITableViewController {
+    
+    var profileList = [AppProfile]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppProfileFunctions.readAppProfiles { list in
-            print(list[1].title)
+        AppProfileFunctions.readAppProfiles { (listOfProfiles) in
+            self.profileList = listOfProfiles
+            self.tableView.reloadData()
         }
 
         // Uncomment the following line to preserve selection between presentations
@@ -26,25 +30,39 @@ class StudentStaticTableView: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
 
-    /*
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return profileList.count
+    }
+
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell else {fatalError("Could not deque-reusable")}
 
-        // Configure the cell...
+        let appProfile = profileList[indexPath.row]
+        cell.setup(appProfileModel: appProfile)
+        
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+            cell.accessoryType = .checkmark
+        }
+
+    }
+
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+            cell.accessoryType = .none
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -80,35 +98,15 @@ class StudentStaticTableView: UITableViewController {
         return true
     }
     */
-    
-    
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        let row = tableView.indexPathForSelectedRow!.row
-        let section = tableView.indexPathForSelectedRow!.section
-        
-        print("in prepare for Segue and the row number is \(row) and section is \(section)")
-
     }
-    
-//    if let cell = tableView.cellForRow(at: indexPath), let identifier = cell.reuseIdentifier {
-//        var segueID = ""
-//        switch identifier {
-//        case "Type1Cell": segueID = "GoToFirst"
-//        case "Type2Cell": segueID = "GoToSecond"
-//        default: return
-//        }
-//        performSegue(withIdentifier: segueID, sender: self)
-//    }
+    */
 
- 
 }
