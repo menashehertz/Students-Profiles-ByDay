@@ -8,9 +8,24 @@
 
 import UIKit
 
-class StudentStaticTableView: UITableViewController {
+protocol StudentUpdaterDelegate {
+    func upDateStudentAppProfileForDay(_ day:Int, with profile: AppProfile)
+}
+
+class StudentStaticTableView: UITableViewController, StudentUpdaterDelegate {
     
-    var student: Student!
+    
+    @IBOutlet var profileForDayLabel: [UILabel]!
+    
+    @IBOutlet weak var notesLabel: UITextView!
+
+    var dayOfWeekPassed : Int?
+    var store : StudentStore!
+    var student: Student! {
+        didSet {
+            Student.saveTheStudent(self.student)
+        }
+    }
 
 /*
     override func viewDidAppear(_ animated: Bool) {
@@ -35,18 +50,43 @@ class StudentStaticTableView: UITableViewController {
     }
 */
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        for item in 0...4 {
+//            profileForDayLabel[item].text = "a"
+//        }
+//
+        print("in view will appear")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var student = Student.getTheStudent()
+        student = Student.getTheStudent()
         
-    
-        // Student.saveTheStudent(student)
+        store = StudentStore()
+        
+        let student = store.student
+        
+        profileForDayLabel[0].text = student.mondayName
+        profileForDayLabel[1].text = student.tuesdayName
+        profileForDayLabel[2].text = student.wednesdayName
+        profileForDayLabel[3].text = student.thursdayName
+        profileForDayLabel[4].text = student.fridayName
+        
+//        store.student.notes = "44"
+//        store.saveTheStudent()
+        
+        
+        
+        
+        
        
-        
         AppProfileFunctions.readAppProfiles { list in
             print(list[1].title)
         }
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -55,17 +95,26 @@ class StudentStaticTableView: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
+    func upDateStudentAppProfileForDay(_ day: Int, with profile: AppProfile) {
+        switch day {
+        case 0:
+            store.student.mondayName = profile.title
+        case 1:
+            store.student.tuesdayName = profile.title
+        case 2:
+            store.student.wednesdayName = profile.title
+        case 3:
+            store.student.thursdayName = profile.title
+        case 4:
+            store.student.fridayName = profile.title
+        default:
+            break
+        }
+        profileForDayLabel[day].text = profile.title
+        
+        Student.saveTheStudent(self.store.student)
+    }
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,18 +124,14 @@ class StudentStaticTableView: UITableViewController {
 
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
+     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
-    // Override to support editing the table view.
+     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
@@ -95,16 +140,11 @@ class StudentStaticTableView: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
+     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
     }
-    */
-
-    /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
@@ -127,6 +167,12 @@ class StudentStaticTableView: UITableViewController {
         let row = tableView.indexPathForSelectedRow!.row
         let section = tableView.indexPathForSelectedRow!.section
         
+        guard let destVC = segue.destination as? AppProfilesTableViewController else {fatalError("Could not cast view controller to AppList")}
+        destVC.store = store
+        destVC.dayOfWeek = row
+        destVC.studentUpdaterDelegate = self
+        
+        print(store.student.notes)
         print("in prepare for Segue and the row number is \(row) and section is \(section)")
 
     }

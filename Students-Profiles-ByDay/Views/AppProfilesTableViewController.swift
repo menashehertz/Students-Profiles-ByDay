@@ -10,11 +10,20 @@ import UIKit
 
 class AppProfilesTableViewController: UITableViewController {
     
+    
+    var studentUpdaterDelegate: StudentUpdaterDelegate?
+    
     var profileList = [AppProfile]()
+    var store: StudentStore!
+    var dayOfWeek: Int!
+    
+    var rowSelected: Int?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(dayOfWeek)
         
         AppProfileFunctions.readAppProfiles { (listOfProfiles) in
             self.profileList = listOfProfiles
@@ -27,6 +36,14 @@ class AppProfilesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @IBAction func doneClicked(_ sender: UIBarButtonItem) {
+        guard let rowSelected = rowSelected else {return}
+        studentUpdaterDelegate?.upDateStudentAppProfileForDay(dayOfWeek, with: profileList[rowSelected])
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
 
     // MARK: - Table view data source
 
@@ -55,6 +72,7 @@ class AppProfilesTableViewController: UITableViewController {
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
             cell.accessoryType = .checkmark
         }
+        rowSelected = indexPath.row
 
     }
 

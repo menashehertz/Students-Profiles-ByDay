@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46257C912385F661008251EC /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46257C902385F661008251EC /* Student.swift */; };
+		46257C9323860779008251EC /* StudentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46257C9223860779008251EC /* StudentStore.swift */; };
 		46A8EDDE2384CE8F003E33DE /* StudentStaticTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46A8EDDC2384CE8F003E33DE /* StudentStaticTableView.storyboard */; };
 		46ABF51023849BD20048527E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF50F23849BD20048527E /* AppDelegate.swift */; };
 		46ABF51223849BD20048527E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF51123849BD20048527E /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		46257C902385F661008251EC /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		46257C9223860779008251EC /* StudentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentStore.swift; sourceTree = "<group>"; };
 		46A8EDDD2384CE8F003E33DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Students-Profiles-ByDay/Base.lproj/StudentStaticTableView.storyboard"; sourceTree = "<group>"; };
 		46ABF50C23849BD20048527E /* Students-Profiles-ByDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Students-Profiles-ByDay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46ABF50F23849BD20048527E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				46257C902385F661008251EC /* Student.swift */,
+				46257C9223860779008251EC /* StudentStore.swift */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				46EC3C1B238571E500FD036C /* AppProfilesTableViewController.swift in Sources */,
 				46ABF51223849BD20048527E /* SceneDelegate.swift in Sources */,
 				46ABF52C2384BA8E0048527E /* AppProfileFunctions.swift in Sources */,
+				46257C9323860779008251EC /* StudentStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
